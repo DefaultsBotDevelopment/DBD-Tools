@@ -1,4 +1,4 @@
-name: JS-Tools
+name: Node.js Package
 
 on: 
   push: 
