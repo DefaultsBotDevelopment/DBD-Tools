@@ -1,0 +1,35 @@
+name: Update and Publish Package
+
+on:
+ release:
+    types: [created]
+
+jobs:
+  update-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Update package version
+        run: npm version patch
+
+      - name: Commit changes
+        run: |
+          git config --global user.email ${{ secrets.EMAIL }}
+          git config --global user.name "Github-Actions"
+          git commit -am "Update package version"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+
+      - name: Publish package
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
