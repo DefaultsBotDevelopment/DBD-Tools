@@ -253,10 +253,5 @@ class Utilities {
 	};
 }
 
-// testing the module
-const { Utils, ArrayUtils } = new Utilities();
-
-console.log(ArrayUtils.chunk([1, 2, 3, 4, 5, 6, 7, 8, 9], 3));
-
 // create a new class instance for the module
 module.exports = new Utilities();
