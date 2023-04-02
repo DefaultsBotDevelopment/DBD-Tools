@@ -1,0 +1,19 @@
+{
+	"name": "dbd-tools",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Default-01/JS-Tools.git"
+	},
+	"author": "Default-01",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Default-01/JS-Tools/issues"
+	},
+	"homepage": "https://github.com/Default-01/JS-Tools#readme"
+}
