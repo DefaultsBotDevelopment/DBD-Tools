@@ -149,7 +149,7 @@ class Utilities {
 		 * @returns {Array} a cleaned array.
 		 */
 
-		getDuplicates(array) {
+		filterDuplicates(array) {
 			return [...new Set(array)];
 		},
 
@@ -160,8 +160,107 @@ class Utilities {
 		 * @returns {Array} an array with the intersections.
 		 */
 
-		getIntersections(array1, array2) {
+		getMatches(array1, array2) {
 			return array1.filter((value) => array2.includes(value));
+		},
+	};
+
+	/**
+	 * All Object functions.
+	 */
+
+	ObjectUtils = {
+		/**
+		 * Get a value from an object with a path.
+		 * @param {Object} object The object that needs to be searched.
+		 * @param {String} path The path to the value.
+		 * @returns {Any} the value of the path.
+		 */
+
+		getValue(object, path) {
+			return path.split('.').reduce((obj, key) => obj && obj[key], object);
+		},
+
+		//=====================================================================================
+
+		/**
+		 * Set a value in an object with a path.
+		 * @param {Object} object The object that needs to be updated.
+		 * @param {String} path The path to the value.
+		 * @param {Any} value The value that needs to be set.
+		 * @returns {Object} the updated object.
+		 * @note If Object does not contain the path, it will be created.
+		 */
+
+		setValue(object, path, value) {
+			if (typeof path === 'string') path = path.split('.');
+			if (path.length > 1) {
+				var e = path.shift();
+				ObjectUtils.setValue(object[e] || (object[e] = {}), path, value);
+			} else object[path[0]] = value;
+			return object;
+		},
+
+		//=====================================================================================
+
+		/**
+		 * Checks if an object has a specific key.
+		 * @param {Object} object The object that needs to be checked.
+		 * @param {String} key The key that needs to be checked.
+		 * @returns {Boolean} wether the object has the key.
+		 */
+
+		hasKey(object, key) {
+			return object.hasOwnProperty(key);
+		},
+
+		//=====================================================================================
+
+		/**
+		 * Checks if an object has a specific value.
+		 * @param {Object} object The object that needs to be checked.
+		 * @param {Any} value The value that needs to be checked.
+		 * @returns {Boolean} wether the object has the value.
+		 */
+
+		hasValue(object, value) {
+			return Object.values(object).includes(value);
+		},
+
+		//=====================================================================================
+
+		/**
+		 * Get the keys of an object.
+		 * @param {Object} object The object that needs to be checked.
+		 * @returns {Array} an array with the keys.
+		 */
+
+		getKeys(object) {
+			return Object.keys(object);
+		},
+
+		//=====================================================================================
+
+		/**
+		 * Get the values of an object.
+		 * @param {Object} object The object that needs to be checked.
+		 * @returns {Array} an array with the values.
+		 */
+
+		getValues(object) {
+			return Object.values(object);
+		},
+
+		// ===================================================================================================
+
+		/**
+		 * Gets all entries in an object.
+		 * @param {Object} object The object that needs to be checked.
+		 * @returns {Array} an array with the entries.
+		 */
+
+		getEntries(object) {
+			return Object.entries(object);
 		},
 	};
 
