@@ -28,7 +28,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          registry-url: https://github.com/Default-01/JS-Tools
+          registry-url: https://github.com/Default-01/JS-Tools.git
       - run: npm ci
       - run: npm publish
         env:
