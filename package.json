@@ -6,6 +6,9 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
+	"publishConfig": {
+		"registry": "https://github.com/Default-01/JS-Tools.git"
+	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/Default-01/JS-Tools.git"
