@@ -48,6 +48,14 @@ dbdTools.CacheUtils.updateCache(cache); // Updates a cache file.
 
 // Discord tools
 dbdTools.DiscordUtils.formatButtons(buttons); // Formats buttons for discord.js.
+dbdTools.DiscordUtils.getMentions(text, type); // Gets all mentions from a string.
+
+// Parse tools
+dbdTools.ParseUtils.parseEmojis(text); // Parses emojis from a string.
+dbdTools.ParseUtils.parseHexColors(text); // Parses hex colors from a string.
+dbdTools.ParseUtils.parseRgbColors(text); // Parses rgb colors from a string.
+dbdTools.ParseUtils.parseHslColors(text); // Parses hsl colors from a string.
+dbdTools.ParseUtils.parseDecimalColors(text); // Parses decimal colors from a string.
 ```
 
 ## Usage

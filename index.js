@@ -333,6 +333,32 @@ class Utilities {
 
 			return rows;
 		},
+
+		//=====================================================================================
+
+		/**
+		 * get user mentions from string.
+		 * @param {String} text the text that needs to be parsed.
+		 * @param {'users'|'roles'|'channels'} type the type of mention that needs to be parsed.
+		 * @returns {Array} an array with all the user mentions.
+		 * @example const mentions = getUserMentions('Hello <@123456789>!', 'users');
+		 */
+
+		getMentions(text, type) {
+			switch (type) {
+				case 'users':
+					let userMentions = text.match(/<@!?(\d{17,19})>/g);
+					return userMentions?.map((mention) => mention.replace(/<@!?/, '').replace(/>/, '')) || [];
+				case 'roles':
+					let roleMentions = text.match(/<@&(\d{17,19})>/g);
+					return roleMentions?.map((mention) => mention.replace(/<@&/, '').replace(/>/, '')) || [];
+				case 'channels':
+					let channelMentions = text.match(/<#(\d{17,19})>/g);
+					return channelMentions?.map((mention) => mention.replace(/<#/, '').replace(/>/, '')) || [];
+				default:
+					throw new Error('Invalid mention type provided.');
+			}
+		},
 	};
 
 	/**
@@ -348,6 +374,90 @@ class Utilities {
 
 		sleep(ms) {
 			return new Promise((resolve) => setTimeout(resolve, ms));
+		},
+	};
+
+	/**
+	 * All Parse functions.
+	 */
+
+	ParseUtils = {
+		/**
+		 * Parses all emojis and returns all the emojis in an array.
+		 * @param {String} text The text that needs to be parsed.
+		 * @returns {Array} an array with all the emojis.
+		 * @example parseEmojis('Hello World! 🌍')
+		 */
+
+		parseEmojis(text) {
+			// create a regular expression to match all emojis
+			const regex = /[\u{1F300}-\u{1F64F}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{1F900}-\u{1F9FF}\u{1F1E0}-\u{1F1FF}]/gu;
+			// return an array of all the matched emojis in the string
+			return text.match(regex) || [];
+		},
+
+		//=====================================================================================
+
+		/**
+		 * Parses all hex colors and returns all the hex colors in an array.
+		 * @param {String} text The text that needs to be parsed.
+		 * @returns {Array} an array with all the hex colors.
+		 * @example parseHexColors('Hello World! #FFFFFF')
+		 */
+
+		parseHexColors(text) {
+			// create a regular expression to match all hex colors
+			const regex = /#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})/g;
+			// return an array of all the matched hex colors in the string
+			return text.match(regex) || [];
+		},
+
+		//=====================================================================================
+
+		/**
+		 * Parse all rgb colors and returns all the rgb colors in an array.
+		 * @param {String} text The text that needs to be parsed.
+		 * @returns {Array} an array with all the rgb colors.
+		 * @example parseRgbColors('Hello World! rgb(255, 255, 255)')
+		 */
+
+		parseRgbColors(text) {
+			// create a regular expression to match all rgb colors
+			const regex = /rgb\((\d{1,3}),\s*(\d{1,3}),\s*(\d{1,3})\)/g;
+			// return an array of all the matched rgb colors in the string
+			return text.match(regex) || [];
+		},
+
+		//=====================================================================================
+
+		/**
+		 * Parse all hsl colors and returns all the hsl colors in an array.
+		 * @param {String} text The text that needs to be parsed.
+		 * @returns {Array} an array with all the hsl colors.
+		 * @example parseHslColors('Hello World! hsl(0, 100%, 50%)')
+		 */
+
+		parseHslColors(text) {
+			// create a regular expression to match all hsl colors
+			const regex = /hsl\((\d{1,3}),\s*(\d{1,3})%,\s*(\d{1,3})%\)/g;
+			// return an array of all the matched hsl colors in the string
+			return text.match(regex) || [];
+		},
+
+		//=====================================================================================
+
+		/**
+		 * Parse all decimal colors and returns all the decimal colors in an array.
+		 * @param {String} text The text that needs to be parsed.
+		 * @returns {Array} an array with all the decimal colors.
+		 * @example parseDecimalColors('Hello World! 16777215')
+		 */
+
+		parseDecimalColors(text) {
+			// create a regular expression to match all decimal colors
+			const regex = /(\d{1,8})/g;
+			// return an array of all the matched decimal colors in the string
+			return text.match(regex) || [];
 		},
 	};
 }
