@@ -336,6 +336,36 @@ class Utilities {
 
 		//=====================================================================================
 
+		formatSelects(custom_id, placeholder, min_values, max_values, options) {
+			// chunk the options into 25 options per row.
+			let chunks = options.map((option, index) => {
+				if (index % 25 === 0) return options.slice(index, index + 25);
+			});
+			// remove empty values from the array.
+			chunks = chunks.filter((row) => row);
+			// check if the amount of options is more than 100.
+			if (options.length > 100) throw new Error('You can only have 100 options and 5 action rows per message.');
+			// create action rows with the chunks.
+			let rows = chunks.map((row, index) => {
+				return {
+					type: 1,
+					components: [
+						{
+							type: 3,
+							custom_id: index > 0 ? `${custom_id + index}` : custom_id,
+							placeholder: placeholder || 'Select an option',
+							min_values: min_values || 1,
+							max_values: max_values || 1,
+							options: row,
+						},
+					],
+				};
+			});
+			return rows;
+		},
+
+		//=====================================================================================
+
 		/**
 		 * get user mentions from string.
 		 * @param {String} text the text that needs to be parsed.
@@ -461,6 +491,8 @@ class Utilities {
 		},
 	};
 }
+
+// let { DiscordUtils } = new Utilities();
 
 // create a new class instance for the module
 module.exports = new Utilities();

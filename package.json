@@ -1,13 +1,10 @@
 {
 	"name": "dbd-tools",
-	"version": "1.0.9",
+	"version": "1.0.10",
 	"description": "A package that contains an collection of useful tools.",
 	"main": "index.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"publishConfig": {
-		"registry": "https://github.com/Default-01/JS-Tools.git"
 	},
 	"repository": {
 		"type": "git",

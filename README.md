@@ -48,6 +48,7 @@ dbdTools.CacheUtils.updateCache(cache); // Updates a cache file.
 
 // Discord tools
 dbdTools.DiscordUtils.formatButtons(buttons); // Formats buttons for discord.js.
+dbdTools.DiscordUtils.formatSelects(options); // Formats selects for discord.js.
 dbdTools.DiscordUtils.getMentions(text, type); // Gets all mentions from a string.
 
 // Parse tools
