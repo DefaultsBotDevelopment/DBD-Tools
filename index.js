@@ -270,7 +270,7 @@ class Utilities {
 		 * @param {Object} object The object that needs to be flattened.
 		 * @returns {Object} a flattened object.
 		 * @example let object = flattenObject({ a: { b: { c: 1 } } });
-		 * console.log(object); // { 'a.b.c': 1 }
+		 * console.log(object); // { 'a_b_c': 1 }
 		 */
 
 		flatten(object) {
@@ -280,11 +280,12 @@ class Utilities {
 				if (!object.hasOwnProperty(i)) continue;
 
 				if (typeof object[i] === 'object') {
+					let { ObjectUtils } = new Utilities();
 					const flatObject = ObjectUtils.flatten(object[i]);
 					for (const x in flatObject) {
 						if (!flatObject.hasOwnProperty(x)) continue;
 
-						toReturn[i + '.' + x] = flatObject[x];
+						toReturn[i + '_' + x] = flatObject[x];
 					}
 				} else {
 					toReturn[i] = object[i];
@@ -522,7 +523,28 @@ class Utilities {
 	};
 }
 
-// let { ObjectUtils } = new Utilities();
+let { ObjectUtils } = new Utilities();
+
+console.log(
+	ObjectUtils.flatten({
+		url: '',
+		color: '',
+		embed: true,
+		image: '',
+		title: '{username} Joined {server}',
+		author: {
+			url: '',
+			name: '',
+			iconURL: '',
+		},
+		footer: 'footer',
+		channel: '',
+		enabled: false,
+		message: '{username} joined the server!',
+		thumbnail: '',
+		description: '{user} joined!',
+	})
+);
 
 // create a new class instance for the module
 module.exports = new Utilities();
