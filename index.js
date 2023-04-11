@@ -262,6 +262,36 @@ class Utilities {
 		getEntries(object) {
 			return Object.entries(object);
 		},
+
+		// ===================================================================================================
+
+		/**
+		 * Flattens an object.
+		 * @param {Object} object The object that needs to be flattened.
+		 * @returns {Object} a flattened object.
+		 * @example let object = flattenObject({ a: { b: { c: 1 } } });
+		 * console.log(object); // { 'a.b.c': 1 }
+		 */
+
+		flatten(object) {
+			const toReturn = {};
+
+			for (const i in object) {
+				if (!object.hasOwnProperty(i)) continue;
+
+				if (typeof object[i] === 'object') {
+					const flatObject = ObjectUtils.flatten(object[i]);
+					for (const x in flatObject) {
+						if (!flatObject.hasOwnProperty(x)) continue;
+
+						toReturn[i + '.' + x] = flatObject[x];
+					}
+				} else {
+					toReturn[i] = object[i];
+				}
+			}
+			return toReturn;
+		},
 	};
 
 	/**
@@ -492,7 +522,7 @@ class Utilities {
 	};
 }
 
-// let { DiscordUtils } = new Utilities();
+// let { ObjectUtils } = new Utilities();
 
 // create a new class instance for the module
 module.exports = new Utilities();

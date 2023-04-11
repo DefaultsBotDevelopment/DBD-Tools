@@ -41,6 +41,7 @@ dbdTools.ObjectUtils.getValue(object, path); // Gets a value from an object usin
 dbdTools.ObjectUtils.setValue(object, path, value); // Sets a value in an object using a path.
 dbdTools.ObjectUtils.getValues(object); // Gets all values in an object.
 dbdTools.ObjectUtils.getEntries(object); // Gets all entries in an object.
+dbdTools.ObjectUtils.flatten(object); // Flattens an object.
 
 // Cache tools
 dbdTools.CacheUtils.getCache(path); // Gets a cache file.

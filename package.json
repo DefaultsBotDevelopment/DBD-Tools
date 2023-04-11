@@ -1,6 +1,6 @@
 {
 	"name": "dbd-tools",
-	"version": "1.0.10",
+	"version": "1.0.11",
 	"description": "A package that contains an collection of useful tools.",
 	"main": "index.js",
 	"scripts": {
