@@ -523,28 +523,7 @@ class Utilities {
 	};
 }
 
-let { ObjectUtils } = new Utilities();
-
-console.log(
-	ObjectUtils.flatten({
-		url: '',
-		color: '',
-		embed: true,
-		image: '',
-		title: '{username} Joined {server}',
-		author: {
-			url: '',
-			name: '',
-			iconURL: '',
-		},
-		footer: 'footer',
-		channel: '',
-		enabled: false,
-		message: '{username} joined the server!',
-		thumbnail: '',
-		description: '{user} joined!',
-	})
-);
+// let { ObjectUtils } = new Utilities();
 
 // create a new class instance for the module
 module.exports = new Utilities();
