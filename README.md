@@ -58,6 +58,10 @@ dbdTools.ParseUtils.parseHexColors(text); // Parses hex colors from a string.
 dbdTools.ParseUtils.parseRgbColors(text); // Parses rgb colors from a string.
 dbdTools.ParseUtils.parseHslColors(text); // Parses hsl colors from a string.
 dbdTools.ParseUtils.parseDecimalColors(text); // Parses decimal colors from a string.
+dbdTools.ParseUtils.parseMilliseconds(ms, { seconds: true, minutes: true }); // Parses milliseconds into a readable time.
+
+// Convert tools
+dbdTools.ConvertUtils.hexToDecimal(hex); // Converts a hex color to a decimal color.
 ```
 
 ## Usage
