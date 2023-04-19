@@ -32,6 +32,7 @@ dbdTools.ArrayUtils.chunk(array, size); // Splits an array into chunks of a spec
 dbdTools.ArrayUtils.hasMatches(array1, array2); // Checks if two arrays have any matching values.
 dbdTools.ArrayUtils.clearDuplicates(array); // Gets all duplicate values in an array.
 dbdTools.ArrayUtils.getMatches(array1, array2); // Gets all values that are in both arrays.
+dbdTools.ArrayUtils.shuffle(array); // Shuffles an array.
 
 // Object tools
 dbdTools.ObjectUtils.hasKey(object, key); // Checks if an object has a specific key.

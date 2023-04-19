@@ -155,6 +155,8 @@ class Utilities {
 			return [...new Set(array)];
 		},
 
+		//=====================================================================================
+
 		/**
 		 * Get the intersections of two arrays.
 		 * @param {Array} array1 The first array.
@@ -164,6 +166,19 @@ class Utilities {
 
 		getMatches(array1, array2) {
 			return array1.filter((value) => array2.includes(value));
+		},
+
+		//=====================================================================================
+
+		/**
+		 * Shuffle an array.
+		 * @param {Array} array The array that needs to be shuffled.
+		 * @returns {Array} a shuffled array.
+		 * @example let array = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+		 */
+
+		shuffle(array) {
+			return array.sort(() => Math.random() - 0.5);
 		},
 	};
 
