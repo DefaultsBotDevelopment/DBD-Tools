@@ -639,15 +639,15 @@ class Utilities {
 		 */
 
 		hexToDecimal(hex) {
-			// convert the hex color to a number
-			const decimal = parseInt(hex, 16);
-			// return the decimal color
-			return decimal;
+			// remove the # from the hex color
+			hex = hex.replace('#', '');
+			// convert the hex color to decimal
+			return parseInt(hex, 16);
 		},
 	};
 }
 
-// let { ObjectUtils } = new Utilities();
+// let { ConvertUtils } = new Utilities();
 
 // create a new class instance for the module
 module.exports = new Utilities();
