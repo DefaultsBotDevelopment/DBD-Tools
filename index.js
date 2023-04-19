@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 // Main class for the module
 class Utilities {
 	/**
