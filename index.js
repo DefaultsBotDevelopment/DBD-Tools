@@ -81,6 +81,7 @@ class Utilities {
 		 * @param {String} string The string that needs to be updated.
 		 * @param {Object} options A object with replacer strings.
 		 * @returns {String} updated string with all replacements applied.
+		 * @example let string = replacer('Hello {name}, how are you?', { name: 'John' });
 		 */
 
 		replacer(string, options) {
