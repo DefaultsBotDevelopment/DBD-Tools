@@ -87,7 +87,7 @@ class Utilities {
 		replacer(string, options) {
 			options.name;
 			for (const [name, value] of Object.entries(options)) {
-				string = string.replaceAll(name, value);
+				string = string.replaceAll(`{${name}}`, value);
 			}
 			return string;
 		},
