@@ -1,8 +1,9 @@
 {
 	"name": "dbd-tools",
-	"version": "1.0.18",
+	"version": "1.1.1",
 	"description": "A package that contains an collection of useful tools.",
 	"main": "index.js",
+	"typings": "typings/index.d.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -15,5 +16,9 @@
 	"bugs": {
 		"url": "https://github.com/Default-01/JS-Tools/issues"
 	},
-	"homepage": "https://github.com/Default-01/JS-Tools#readme"
+	"homepage": "https://github.com/Default-01/JS-Tools#readme",
+	"files": [
+		"index.js",
+		"typings"
+	]
 }
