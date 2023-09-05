@@ -20,5 +20,8 @@
 	"files": [
 		"index.js",
 		"typings"
-	]
+	],
+	"devDependencies": {
+		"tsconfig-paths": "^4.2.0"
+	}
 }
