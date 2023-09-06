@@ -74,3 +74,5 @@ const dbdTools = require('dbd-tools');
 ## Support
 
 If you have any questions, please make an issue on the [GitHub repository]("https://github.com/Default-01/JS-Tools/issues").
+
+testing
