@@ -1,6 +1,6 @@
 {
 	"name": "dbd-tools",
-	"version": "1.1.1",
+	"version": "2.0.0",
 	"description": "A package that contains an collection of useful tools.",
 	"main": "dist/index.js",
 	"typings": "dist/index",
@@ -11,7 +11,7 @@
 		"type": "git",
 		"url": "git+https://github.com/Default-01/JS-Tools.git"
 	},
-	"author": "Default-01",
+	"author": "Default-01, Renotje6",
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/Default-01/JS-Tools/issues"

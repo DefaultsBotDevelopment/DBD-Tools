@@ -1,1 +1,0 @@
-import { flatten } from './src';
