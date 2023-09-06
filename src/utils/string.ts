@@ -1,3 +1,7 @@
+/**
+ * @description Format text to a specific casing.
+ * @example formatText('hello world', 'pascal'); // returns 'Hello World'
+ */
 export function formatText(text: string, type: 'pascal' | 'camel' | 'snake' | 'kebab'): string {
 	// split the text into an array
 	let array = text.split(' ');
@@ -8,7 +12,7 @@ export function formatText(text: string, type: 'pascal' | 'camel' | 'snake' | 'k
 				.map((word) => {
 					return word.charAt(0).toUpperCase() + word.slice(1);
 				})
-				.join('');
+				.join(' ');
 
 		case 'camel': // camel casing
 			return array
@@ -16,7 +20,7 @@ export function formatText(text: string, type: 'pascal' | 'camel' | 'snake' | 'k
 					if (index === 0) return word;
 					return word.charAt(0).toUpperCase() + word.slice(1);
 				})
-				.join('');
+				.join(' ');
 
 		case 'snake': // snake casing
 			return array.join('_');
@@ -30,11 +34,9 @@ export function formatText(text: string, type: 'pascal' | 'camel' | 'snake' | 'k
 }
 
 /**
- * Returns an ID as a String with the specified amount of characters.
- * @param {Number} size amount of characters
- * @returns {Number} a random ID.
+ * @description Returns an ID as a String with the specified amount of characters.
+ * @example generateId(5); // returns '12345'
  */
-
 export function generateId(size: number): string {
 	return Math.random()
 		.toString()
@@ -42,10 +44,9 @@ export function generateId(size: number): string {
 }
 
 /**
- * Generates a random UUID.
- * @returns {String} a random UUID.
+ * @description Generates a random UUID.
+ * @example generateUuid(); // returns 'e7674566-4d6d-40d4-a7f8-ed643f2e87ad'
  */
-
 export function generateUuid(): string {
 	return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
 		var r = (Math.random() * 16) | 0,
@@ -55,13 +56,9 @@ export function generateUuid(): string {
 }
 
 /**
- * Replaces multiple things in one string.
- * @param {String} string The string that needs to be updated.
- * @param {Object} options A object with replacer strings.
- * @returns {String} updated string with all replacements applied.
+ * @description Replaces multiple things in one string.
  * @example let string = replacer('Hello {name}, how are you?', { name: 'John' });
  */
-
 export function replacer(string: string, options: { [key: string]: any }): string {
 	options.name;
 	for (const [name, value] of Object.entries(options)) {
@@ -69,3 +66,10 @@ export function replacer(string: string, options: { [key: string]: any }): strin
 	}
 	return string;
 }
+
+export default {
+	formatText,
+	generateId,
+	generateUuid,
+	replacer,
+};

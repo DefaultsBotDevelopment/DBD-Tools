@@ -37,7 +37,7 @@ declare module 'dbd-tools' {
 	interface DiscordUtils {
 		formatButtons(buttons: any[]): any[];
 		formatSelects(custom_id: string, placeholder: string, min_values: number, max_values: number, options: any[]): any[];
-		getMentions(text: string, type: 'users' | 'roles' | 'channels'): string[];
+		getMentions(text: string, options: { users?: boolean; roles?: boolean; channel?: boolean }): { users?: string[]; roles?: string[]; channels?: string[] };
 	}
 
 	interface Utils {
