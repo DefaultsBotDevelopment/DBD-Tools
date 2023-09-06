@@ -18,8 +18,7 @@
 	},
 	"homepage": "https://github.com/Default-01/JS-Tools#readme",
 	"files": [
-		"index.js",
-		"typings"
+		"dist"
 	],
 	"devDependencies": {
 		"@types/node": "^20.5.9",
