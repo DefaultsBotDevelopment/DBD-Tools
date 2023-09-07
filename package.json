@@ -22,7 +22,7 @@
 	],
 	"publishConfig": {
 		"access": "public",
-		"registry": "https://npm.pkg.github.com/"
+		"@DefaultsBotDevelopment:registry": "https://npm.pkg.github.com/"
 	},
 	"devDependencies": {
 		"@types/node": "^20.5.9",
