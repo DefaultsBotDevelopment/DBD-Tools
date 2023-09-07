@@ -27,6 +27,7 @@ jobs:
       packages: write
       contents: read
     steps:
+      - run: echo ${{ github.repository_owner }}
       - name: 📚 checkout
         uses: actions/checkout@v4
       - name: 🟢 node
