@@ -19,29 +19,6 @@ jobs:
       - name: 🔧 install dependencies
         run: npm ci
 
-  publish-npm:
-    name: 🚀 publish NPM package
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: 📚 checkout
-        uses: actions/checkout@v4
-      - name: 🟢 node
-        uses: actions/setup-node@v3.8.1
-        with:
-          node-version: 18
-          registry-url: https://registry.npmjs.org/
-      - name: 🔧 install dependencies
-        run: npm ci
-      - name: 🚀 publish
-        run: |
-          # Change publish registry
-          echo "$(jq '.publishConfig.registry = "https://registry.npmjs.org"' package.json)" > package.json
-          # Publish package
-          npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
-  
   publish-gpr:
     name: 📦 publish to GitHub package registry
     needs: build
