@@ -38,6 +38,8 @@ jobs:
       - name: 🔧 install dependencies
         run: npm ci
       - name: 📦 publish to GitHub registry
-        run: npm publish
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GPR_TOKEN }}\n${{ github.repository_owner }}:registry=https://npm.pkg.github.com/" >> ~/.npmrc
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
