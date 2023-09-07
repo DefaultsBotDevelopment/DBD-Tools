@@ -20,6 +20,10 @@
 	"files": [
 		"dist"
 	],
+	"publishConfig": {
+		"access": "public",
+		"registry": "https://npm.pkg.github.com/"
+	},
 	"devDependencies": {
 		"@types/node": "^20.5.9",
 		"tsconfig-paths": "^4.2.0"
