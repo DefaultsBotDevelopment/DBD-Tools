@@ -38,6 +38,7 @@ jobs:
         run: npm ci
       - name: 📦 publish to GitHub registry
         run: |
-          echo "//npm.pkg.github.com/:_authToken=${{secrets.GPR_TOKEN}}" >> ~/.npmrc && npm publish
+          echo "https://npm.pkg.github.com/:_authToken=${{secrets.GPR_TOKEN}}" >> ~/.npmrc
+          cat ~/.npmrc
         env:
           NODE_AUTH_TOKEN: ${{secrets.GPR_TOKEN}}
