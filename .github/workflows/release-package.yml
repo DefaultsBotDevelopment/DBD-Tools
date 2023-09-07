@@ -38,11 +38,5 @@ jobs:
         run: npm ci
       - name: 📦 publish to GitHub registry
         run: |
-          # Change publish registry
-          echo "$(jq '.pubhlishConfig.registry = "https://npm.pkg.github.com"' package.json )" > package.json
-          # Add organisation scope to package name
-          echo #(jq '.name = "@DefaultsBotDevelopment/DBD-Tools"' package.json") > package.json
-          # Publish the package
-          npm publish --@DefaultsBotDevelopment:registry=https://npm.pkg.github.com
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
