@@ -24,6 +24,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: 📚 checkout
+        uses: actions/checkout@v4
+      - name: 🟢 node
+        uses: actions/setup-node@v3.8.1
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
       - name: 🔧 install dependencies
         run: npm ci
       - name: 🚀 publish
