@@ -36,7 +36,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
       - name: 🔧 install dependencies
         run: npm ci
-      - name: publish to GitHub registry
+      - name: 📦 publish to GitHub registry
         run: |
           # Change publish registry
           echo "$(jq '.pubhlishConfig.registry = "https://npm.pkg.github.com"' package.json )" > package.json
