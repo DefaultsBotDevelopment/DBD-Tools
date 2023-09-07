@@ -19,9 +19,8 @@ jobs:
       - name: 🔧 install dependencies
         run: npm ci
 
-  publish-npm:
-    name: 🚀 publish to npm
-    needs: build
+  release:
+    name: 🚀 publish NPM package
     runs-on: ubuntu-latest
     steps:
       - name: 📚 checkout
@@ -33,8 +32,8 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: 🔧 install dependencies
         run: npm ci
-      - name: 📦 publish to npm
-        run: npm
+      - name: 🚀 publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
