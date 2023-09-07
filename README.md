@@ -1,76 +1,109 @@
-<!-- generate readme file -->
+# Default's Bot Development Tools
 
-# DBD Tools
-
-This is a collection of tools for javascript.
+A collection of JavaScript utility functions.
 
 ## Installation
 
+To install the package, run the following command:
+
 ```bash
-npm install dbd-tools
-```
-
-## Tools
-
-```javascript
-const dbdTools = require('dbd-tools');
-
-// Utils
-dbdTools.Utils.sleep(ms); // Sleeps for a specific amount of time.
-
-// String tools
-dbdTools.StringUtils.formatText(text, type); // Formats text to a specific case.
-dbdTools.StringUtils.generateId(size); // Generates a random string of a specific size.
-dbdTools.StringUtils.generateUuid(); // Generates a random Unique User ID.
-dbdTools.StringUtils.replacer(string, options); // Replaces a string with matching values.
-
-// Number tools
-dbdTools.NumberUtils.getRandom(min, max); // Generates a random number between a min and max value.
-
-// Array tools
-dbdTools.ArrayUtils.chunk(array, size); // Splits an array into chunks of a specific size.
-dbdTools.ArrayUtils.hasMatches(array1, array2); // Checks if two arrays have any matching values.
-dbdTools.ArrayUtils.clearDuplicates(array); // Gets all duplicate values in an array.
-dbdTools.ArrayUtils.getMatches(array1, array2); // Gets all values that are in both arrays.
-dbdTools.ArrayUtils.shuffle(array); // Shuffles an array.
-
-// Object tools
-dbdTools.ObjectUtils.hasKey(object, key); // Checks if an object has a specific key.
-dbdTools.ObjectUtils.hasValue(object, value); // Checks if an object has a specific value.
-dbdTools.ObjectUtils.getKeys(object); // Gets all keys in an object.
-dbdTools.ObjectUtils.getValue(object, path); // Gets a value from an object using a path.
-dbdTools.ObjectUtils.setValue(object, path, value); // Sets a value in an object using a path.
-dbdTools.ObjectUtils.getValues(object); // Gets all values in an object.
-dbdTools.ObjectUtils.getEntries(object); // Gets all entries in an object.
-dbdTools.ObjectUtils.flatten(object); // Flattens an object.
-
-// Cache tools
-dbdTools.CacheUtils.getCache(path); // Gets a cache file.
-dbdTools.CacheUtils.updateCache(cache); // Updates a cache file.
-
-// Discord tools
-dbdTools.DiscordUtils.formatButtons(buttons); // Formats buttons for discord.js.
-dbdTools.DiscordUtils.formatSelects(options); // Formats selects for discord.js.
-dbdTools.DiscordUtils.getMentions(text, type); // Gets all mentions from a string.
-
-// Parse tools
-dbdTools.ParseUtils.parseEmojis(text); // Parses emojis from a string.
-dbdTools.ParseUtils.parseHexColors(text); // Parses hex colors from a string.
-dbdTools.ParseUtils.parseRgbColors(text); // Parses rgb colors from a string.
-dbdTools.ParseUtils.parseHslColors(text); // Parses hsl colors from a string.
-dbdTools.ParseUtils.parseDecimalColors(text); // Parses decimal colors from a string.
-dbdTools.ParseUtils.parseMilliseconds(ms, { seconds: true, minutes: true }); // Parses milliseconds into a readable time.
-
-// Convert tools
-dbdTools.ConvertUtils.hexToDecimal(hex); // Converts a hex color to a decimal color.
+npm install @defaultsbotdevelopment/dbd-tools
 ```
 
 ## Usage
 
-```javascript
-const dbdTools = require('dbd-tools');
+In your project, import the package either using `require` or `import`:
+
+```js
+const dbdTools = require('@defaultsbotdevelopment/dbd-tools');
+// or
+import dbdTools from '@defaultsbotdevelopment/dbd-tools';
 ```
 
-## Support
+You can also destructure the package to only import the functions you need:
 
-If you have any questions, please make an issue on the [GitHub repository]("https://github.com/Default-01/JS-Tools/issues").
+```js
+const { getKeys, getValues } = require('@defaultsbotdevelopment/dbd-tools');
+// or
+import { getKeys, getValues } from '@defaultsbotdevelopment/dbd-tools';
+```
+
+## Functions
+
+The functions are categorized into the following categories:
+
+- [Array](#array)
+- [Cache](#cache)
+- [Convert](#convert)
+- [Discord](#discord)
+- [Number](#number)
+- [Object](#object)
+- [Parse](#parse)
+- [String](#string)
+- [Time](#time)
+
+### Array
+
+All available array utility functions.
+
+#### `chunk`
+
+Chunks an array into smaller arrays.
+
+```js
+import { chunk } from '@defaultsbotdevelopment/dbd-tools';
+
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+console.log(chunk(array, 3)); // => [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+```
+
+#### `hasMatches`
+
+Checks if an array has any matches with another array.
+
+```js
+import { hasMatches } from '@defaultsbotdevelopment/dbd-tools';
+
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const array2 = [9, 10, 11];
+
+console.log(hasMatches(array, array2)); // => true
+```
+
+#### `filterDuplicates`
+
+Filters out duplicate values from an array.
+
+```js
+import { filterDuplicates } from '@defaultsbotdevelopment/dbd-tools';
+
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2];
+
+console.log(filterDuplicates(array)); // => [1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+#### `getMatches`
+
+Gets all matches from an array.
+
+```js
+import { getMatches } from '@defaultsbotdevelopment/dbd-tools';
+
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const array2 = [1, 9, 10, 11];
+
+console.log(getMatches(array, array2)); // => [1, 9]
+```
+
+#### `shuffle`
+
+Shuffles an array.
+
+```js
+import { shuffle } from '@defaultsbotdevelopment/dbd-tools';
+
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+console.log(shuffle(array)); // => [9, 3, 1, 5, 4, 2, 6, 7, 8]
+```
