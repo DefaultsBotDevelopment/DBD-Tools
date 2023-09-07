@@ -21,6 +21,7 @@ jobs:
 
   release:
     name: 🚀 publish NPM package
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: 📚 checkout
@@ -33,7 +34,7 @@ jobs:
       - name: 🔧 install dependencies
         run: npm ci
       - name: 🚀 publish
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
