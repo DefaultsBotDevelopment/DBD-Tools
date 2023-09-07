@@ -71,18 +71,6 @@ const array2 = [9, 10, 11];
 console.log(hasMatches(array, array2)); // => true
 ```
 
-#### `filterDuplicates`
-
-Filters out duplicate values from an array.
-
-```js
-import { filterDuplicates } from '@defaultsbotdevelopment/dbd-tools';
-
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2];
-
-console.log(filterDuplicates(array)); // => [1, 2, 3, 4, 5, 6, 7, 8, 9]
-```
-
 #### `getMatches`
 
 Gets all matches from an array.
@@ -94,6 +82,18 @@ const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const array2 = [1, 9, 10, 11];
 
 console.log(getMatches(array, array2)); // => [1, 9]
+```
+
+#### `filterDuplicates`
+
+Filters out duplicate values from an array.
+
+```js
+import { filterDuplicates } from '@defaultsbotdevelopment/dbd-tools';
+
+const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2];
+
+console.log(filterDuplicates(array)); // => [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
 
 #### `shuffle`
