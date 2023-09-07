@@ -1,4 +1,4 @@
-name: '🚀 Release packges to gpr and npm'
+name: '🚀 Release packages to gpr and npm'
 
 on:
   release:
@@ -38,5 +38,6 @@ jobs:
         run: npm ci
       - name: 📦 publish to GitHub registry
         run: |
+          echo "//npm.pkg.github.com/:_authToken=${{secrets.GPR_TOKEN}}" >> ~/.npmrc && npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.GPR_TOKEN}}
