@@ -34,12 +34,12 @@ jobs:
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
-          scope: public
+          scope: ${{ github.repository_owner }}
       - name: 🔧 install dependencies
         run: npm ci
       - name: 📦 publish to GitHub registry
         run: |
           echo "//npm.pkg.github.com/:_authToken=${{ secrets.GPR_TOKEN }}\n${{ github.repository_owner }}:registry=https://npm.pkg.github.com/" >> ~/.npmrc
-          npm publish
+          npm publish --scope=public
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
