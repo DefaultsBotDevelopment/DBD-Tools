@@ -34,11 +34,12 @@ jobs:
         with:
           node-version: 18
           registry-url: https://npm.pkg.github.com/
+          scope: '@DefaultsBotDevelopment'
       - name: 🔧 install dependencies
         run: npm ci
       - name: 📦 publish to GitHub registry
         run: |
-          echo "https://npm.pkg.github.com/:_authToken=${{secrets.GPR_TOKEN}}" >> ~/.npmrc
+          echo "https://npm.pkg.github.com/DefaultsBotDevelopment" >> ~/.npmrc
           npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.GPR_TOKEN}}
