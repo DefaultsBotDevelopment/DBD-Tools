@@ -1,0 +1,64 @@
+name: '🚀 Release packages to gpr and npm'
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  build:
+    name: 🔨 build
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📚 checkout
+        uses: actions/checkout@v4
+      - name: 🟢 node
+        uses: actions/setup-node@v3.8.1
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - name: 🔧 install dependencies
+        run: npm ci
+
+  release:
+    name: 🚀 publish NPM package
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📚 checkout
+        uses: actions/checkout@v4
+      - name: 🟢 node
+        uses: actions/setup-node@v3.8.1
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - name: 🔧 install dependencies
+        run: npm ci
+      - name: 🚀 publish
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+  publish-gpr:
+    name: 📦 publish to GitHub package registry
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - name: 📚 checkout
+        uses: actions/checkout@v4
+      - name: 🟢 node
+        uses: actions/setup-node@v3.8.1
+        with:
+          node-version: 18
+          registry-url: https://npm.pkg.github.com/
+          scope: ${{ github.repository_owner }}
+      - name: 🔧 install dependencies
+        run: npm ci
+      - name: 📦 publish to GitHub registry
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GPR_TOKEN }}\n${{ github.repository_owner }}:registry=https://npm.pkg.github.com/" >> ~/.npmrc
+          npm publish --scope=public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}

@@ -1,5 +1,5 @@
 {
-	"name": "dbd-tools",
+	"name": "@defaultsbotdevelopment/dbd-tools",
 	"version": "2.1.0",
 	"description": "A package that contains an collection of useful tools.",
 	"main": "dist/index.js",
@@ -9,14 +9,14 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Default-01/JS-Tools.git"
+		"url": "git+https://github.com/DefaultsBotDevelopment/DBD-Tools.git"
 	},
-	"author": "Default-01, Renotje6",
+	"author": "Default-01, renotje6",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/Default-01/JS-Tools/issues"
+		"url": "https://github.com/DefaultsBotDevelopment/DBD-Tools/issues"
 	},
-	"homepage": "https://github.com/Default-01/JS-Tools#readme",
+	"homepage": "https://github.com/DefaultsBotDevelopment/DBD-Tools#readme",
 	"files": [
 		"dist"
 	],
