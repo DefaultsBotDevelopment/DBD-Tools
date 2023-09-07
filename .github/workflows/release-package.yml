@@ -34,7 +34,9 @@ jobs:
       - name: 🔧 install dependencies
         run: npm ci
       - name: 📦 publish to npm
-        run: npm publish
+        run: npm
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
   publish-gpr:
     name: 📦 publish to GitHub package registry
