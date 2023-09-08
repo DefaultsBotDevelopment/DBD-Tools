@@ -97,13 +97,9 @@ export function flatten(object: Record<string, any>): object {
 	const toReturn: Record<string, any> = {};
 
 	for (const i in object) {
-		if (!object.hasOwnProperty(i)) continue;
-
 		if (typeof object[i] === 'object') {
 			const flatObject: Record<string, any> = flatten(object[i]);
 			for (const x in flatObject) {
-				if (!flatObject.hasOwnProperty(x)) continue;
-
 				toReturn[i + '_' + x] = flatObject[x];
 			}
 		} else {

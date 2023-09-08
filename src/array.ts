@@ -4,7 +4,10 @@
  */
 
 export function chunk(array: any[], size: number): any[][] {
-	var results = [];
+	if (!array.length || size < 1) return [];
+	if (size >= array.length) return array;
+
+	let results = [];
 	while (array.length) {
 		results.push(array.splice(0, size));
 	}
@@ -44,7 +47,7 @@ export function getMatches(array1: any[], array2: any[]): any[] {
  */
 
 export function shuffle(array: any[]): any[] {
-	return array.sort(() => Math.random() - 0.5);
+	return [...array].sort(() => Math.random() - 0.5);
 }
 
 export const ArrayUtils = {

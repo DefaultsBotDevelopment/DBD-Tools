@@ -1,17 +1,37 @@
 {
 	"name": "@defaultsbotdevelopment/dbd-tools",
-	"version": "2.2.1",
+	"version": "2.3.0",
 	"description": "A package that contains a collection of useful tools.",
 	"main": "dist/index.js",
 	"typings": "dist/index",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "jest --watch",
+		"test:coverage": "jest --coverage"
 	},
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/DefaultsBotDevelopment/DBD-Tools.git"
 	},
 	"author": "Default-01, renotje6",
+	"keywords": [
+		"defaultsbotdevelopment",
+		"dbd-tools",
+		"dbdtools",
+		"dbd",
+		"tools",
+		"discord",
+		"discord.js",
+		"discordjs",
+		"utility",
+		"utilities",
+		"util",
+		"array",
+		"cache",
+		"convert",
+		"parse",
+		"object",
+		"time"
+	],
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/DefaultsBotDevelopment/DBD-Tools/issues"
@@ -21,7 +41,10 @@
 		"dist"
 	],
 	"devDependencies": {
+		"@types/jest": "^29.5.4",
 		"@types/node": "^20.5.9",
+		"jest": "^29.6.4",
+		"ts-jest": "^29.1.1",
 		"tsconfig-paths": "^4.2.0"
 	},
 	"dependencies": {

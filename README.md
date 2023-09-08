@@ -1,3 +1,5 @@
+[![npm version](https://img.shields.io/npm/v/@defaultsbotdevelopment/dbd-tools.svg?style=flat-square)](https://www.npmjs.org/package/@defaultsbotdevelopment/dbd-tools)
+
 # Default's Bot Development Tools
 
 A collection of JavaScript utility functions.
