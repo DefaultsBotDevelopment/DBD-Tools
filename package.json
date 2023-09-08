@@ -13,6 +13,25 @@
 		"url": "git+https://github.com/DefaultsBotDevelopment/DBD-Tools.git"
 	},
 	"author": "Default-01, renotje6",
+	"keywords": [
+		"defaultsbotdevelopment",
+		"dbd-tools",
+		"dbdtools",
+		"dbd",
+		"tools",
+		"discord",
+		"discord.js",
+		"discordjs",
+		"utility",
+		"utilities",
+		"util",
+		"array",
+		"cache",
+		"convert",
+		"parse",
+		"object",
+		"time"
+	],
 	"license": "ISC",
 	"bugs": {
 		"url": "https://github.com/DefaultsBotDevelopment/DBD-Tools/issues"

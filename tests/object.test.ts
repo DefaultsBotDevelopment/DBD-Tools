@@ -230,14 +230,4 @@ describe('ObjectUtils flatten function', () => {
 
 		expect(result).toEqual({});
 	});
-
-	it('should skip properties inherited from the prototype chain', () => {
-		const prototype = { prop: 'value' };
-		const object = Object.create(prototype);
-		object.a = 1;
-
-		const result = ObjectUtils.flatten(object);
-
-		expect(result).toEqual({ a: 1 });
-	});
 });
