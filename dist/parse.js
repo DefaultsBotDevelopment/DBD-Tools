@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseDecimalColors = exports.parseHslColors = exports.parseRgbColors = exports.parseHexColors = exports.parseEmojis = void 0;
+exports.ParseUtils = exports.parseDecimalColors = exports.parseHslColors = exports.parseRgbColors = exports.parseHexColors = exports.parseEmojis = void 0;
 /**
  * @description Parses all emojis and returns all the emojis in an array.
  * @example parseEmojis('Hello World! 🌍') // returns [ '🌍' ]
@@ -56,6 +56,13 @@ function parseDecimalColors(text) {
     return text.match(regex) || [];
 }
 exports.parseDecimalColors = parseDecimalColors;
+exports.ParseUtils = {
+    parseEmojis,
+    parseHexColors,
+    parseRgbColors,
+    parseHslColors,
+    parseDecimalColors,
+};
 exports.default = {
     parseEmojis,
     parseHexColors,

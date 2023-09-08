@@ -20,7 +20,7 @@ export declare function formatSelects(custom_id: string, placeholder: string, mi
     components: StringSelectMenuComponent[];
 }>;
 /**
- * @description get user mentions from string.
+ * @description get mentions from string.
  * @example const mentions = getMentions('Hello <@123456789>!', { users: true });
  */
 export declare function getMentions(text: string, options: {
@@ -31,6 +31,11 @@ export declare function getMentions(text: string, options: {
     users?: string[];
     roles?: string[];
     channels?: string[];
+};
+export declare const DiscordUtils: {
+    formatButtons: typeof formatButtons;
+    formatSelects: typeof formatSelects;
+    getMentions: typeof getMentions;
 };
 declare const _default: {
     formatButtons: typeof formatButtons;

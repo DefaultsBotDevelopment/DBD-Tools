@@ -58,6 +58,14 @@ export function parseDecimalColors(text: string): string[] {
 	return text.match(regex) || [];
 }
 
+export const ParseUtils = {
+	parseEmojis,
+	parseHexColors,
+	parseRgbColors,
+	parseHslColors,
+	parseDecimalColors,
+};
+
 export default {
 	parseEmojis,
 	parseHexColors,

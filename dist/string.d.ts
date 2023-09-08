@@ -20,6 +20,12 @@ export declare function generateUuid(): string;
 export declare function replacer(string: string, options: {
     [key: string]: any;
 }): string;
+export declare const StringUtils: {
+    formatText: typeof formatText;
+    generateId: typeof generateId;
+    generateUuid: typeof generateUuid;
+    replacer: typeof replacer;
+};
 declare const _default: {
     formatText: typeof formatText;
     generateId: typeof generateId;
