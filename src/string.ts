@@ -67,6 +67,13 @@ export function replacer(string: string, options: { [key: string]: any }): strin
 	return string;
 }
 
+export const StringUtils = {
+	formatText,
+	generateId,
+	generateUuid,
+	replacer,
+};
+
 export default {
 	formatText,
 	generateId,

@@ -23,6 +23,13 @@ export declare function parseHslColors(text: string): string[];
  * @example parseDecimalColors('Hello World! 16777215') // returns [ '16777215' ]
  */
 export declare function parseDecimalColors(text: string): string[];
+export declare const ParseUtils: {
+    parseEmojis: typeof parseEmojis;
+    parseHexColors: typeof parseHexColors;
+    parseRgbColors: typeof parseRgbColors;
+    parseHslColors: typeof parseHslColors;
+    parseDecimalColors: typeof parseDecimalColors;
+};
 declare const _default: {
     parseEmojis: typeof parseEmojis;
     parseHexColors: typeof parseHexColors;

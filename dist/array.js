@@ -4,7 +4,7 @@
  * @example let array = chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9], 3); // returns [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.shuffle = exports.getMatches = exports.filterDuplicates = exports.hasMatches = exports.chunk = void 0;
+exports.ArrayUtils = exports.shuffle = exports.getMatches = exports.filterDuplicates = exports.hasMatches = exports.chunk = void 0;
 function chunk(array, size) {
     var results = [];
     while (array.length) {
@@ -45,6 +45,13 @@ function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
 }
 exports.shuffle = shuffle;
+exports.ArrayUtils = {
+    chunk,
+    hasMatches,
+    filterDuplicates,
+    getMatches,
+    shuffle,
+};
 exports.default = {
     chunk,
     hasMatches,

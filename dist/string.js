@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.replacer = exports.generateUuid = exports.generateId = exports.formatText = void 0;
+exports.StringUtils = exports.replacer = exports.generateUuid = exports.generateId = exports.formatText = void 0;
 /**
  * @description Format text to a specific casing.
  * @example formatText('hello world', 'pascal'); // returns 'Hello World'
@@ -66,6 +66,12 @@ function replacer(string, options) {
     return string;
 }
 exports.replacer = replacer;
+exports.StringUtils = {
+    formatText,
+    generateId,
+    generateUuid,
+    replacer,
+};
 exports.default = {
     formatText,
     generateId,

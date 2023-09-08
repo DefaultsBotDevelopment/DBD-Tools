@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.msToTimeObject = void 0;
+exports.TimeUtils = exports.msToTimeObject = void 0;
 /**
  * @description Converts milliseconds to a time object. If no options are provided, all time units will be included.
  * @example parseMilliseconds(1000, { seconds: true, minutes: true, hours: true, days: true, weeks: true, months: true, years: true }) // returns { seconds: 1 }
@@ -73,6 +73,9 @@ function msToTimeObject(timeInMs, options = {
     return returnObject;
 }
 exports.msToTimeObject = msToTimeObject;
+exports.TimeUtils = {
+    msToTimeObject,
+};
 exports.default = {
     msToTimeObject,
 };

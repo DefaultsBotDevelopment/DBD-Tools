@@ -40,6 +40,16 @@ export declare function getEntries(object: object): any[];
  * @example let object = flattenObject({ a: { b: { c: 1 } } }); // returns { a_b_c: 1 }
  */
 export declare function flatten(object: Record<string, any>): object;
+export declare const ObjectUtils: {
+    getValue: typeof getValue;
+    setValue: typeof setValue;
+    hasKey: typeof hasKey;
+    hasValue: typeof hasValue;
+    getKeys: typeof getKeys;
+    getValues: typeof getValues;
+    getEntries: typeof getEntries;
+    flatten: typeof flatten;
+};
 declare const _default: {
     getValue: typeof getValue;
     setValue: typeof setValue;

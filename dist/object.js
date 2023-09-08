@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.flatten = exports.getEntries = exports.getValues = exports.getKeys = exports.hasValue = exports.hasKey = exports.setValue = exports.getValue = void 0;
+exports.ObjectUtils = exports.flatten = exports.getEntries = exports.getValues = exports.getKeys = exports.hasValue = exports.hasKey = exports.setValue = exports.getValue = void 0;
 /**
  * @description Get a value from an object with a path.
  * @example getValue({ a: { b: { c: 1 } } }, 'a.b.c'); // returns 1
@@ -110,6 +110,16 @@ function flatten(object) {
     return toReturn;
 }
 exports.flatten = flatten;
+exports.ObjectUtils = {
+    getValue,
+    setValue,
+    hasKey,
+    hasValue,
+    getKeys,
+    getValues,
+    getEntries,
+    flatten,
+};
 exports.default = {
     getValue,
     setValue,

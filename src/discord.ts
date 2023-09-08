@@ -62,7 +62,7 @@ export function formatSelects(custom_id: string, placeholder: string, min_values
 }
 
 /**
- * @description get user mentions from string.
+ * @description get mentions from string.
  * @example const mentions = getMentions('Hello <@123456789>!', { users: true });
  */
 
@@ -100,6 +100,12 @@ export function getMentions(text: string, options: { users?: boolean; roles?: bo
 
 	return mentions;
 }
+
+export const DiscordUtils = {
+	formatButtons,
+	formatSelects,
+	getMentions,
+};
 
 export default {
 	formatButtons,
