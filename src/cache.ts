@@ -15,6 +15,7 @@ export function getCache(path: string) {
  * @description Update cache file.
  * @throws {Error} - If the cache file could not be updated.
  * @example updateCache(cache, './cache.json'); // returns a promise
+ * @async
  */
 
 export async function updateCache(cache: Record<string, any>, path: string) {

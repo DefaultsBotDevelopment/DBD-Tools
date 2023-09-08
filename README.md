@@ -107,3 +107,35 @@ const array = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 console.log(shuffle(array)); // => [9, 3, 1, 5, 4, 2, 6, 7, 8]
 ```
+
+### Cache
+
+All available cache utility functions.
+
+#### `getCache`
+
+Retrieve JSON data from a cache file in a synchronous manner.
+
+```js
+import { getCache } from '@defaultsbotdevelopment/dbd-tools';
+
+const data = getCache('cache.json');
+
+console.log(data); // => { "key": "value" }
+```
+
+#### `updateCache`
+
+Update a cache file with new JSON data in an asynchronous manner.
+
+```js
+import { updateCache, getCache } from '@defaultsbotdevelopment/dbd-tools';
+
+let data = getCache('cache.json');
+
+data.key = 'new value';
+
+data = await updateCache('cache.json', data);
+
+console.log(data); // => { key: "new value" }
+```
