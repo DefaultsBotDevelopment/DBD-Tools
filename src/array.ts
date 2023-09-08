@@ -47,6 +47,14 @@ export function shuffle(array: any[]): any[] {
 	return array.sort(() => Math.random() - 0.5);
 }
 
+export const ArrayUtils = {
+	chunk,
+	hasMatches,
+	filterDuplicates,
+	getMatches,
+	shuffle,
+};
+
 export default {
 	chunk,
 	hasMatches,

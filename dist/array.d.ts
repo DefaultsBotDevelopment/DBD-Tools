@@ -23,6 +23,13 @@ export declare function getMatches(array1: any[], array2: any[]): any[];
  * @example let array = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]); // returns [9, 2, 3, 4, 5, 6, 7, 8, 1]
  */
 export declare function shuffle(array: any[]): any[];
+export declare const ArrayUtils: {
+    chunk: typeof chunk;
+    hasMatches: typeof hasMatches;
+    filterDuplicates: typeof filterDuplicates;
+    getMatches: typeof getMatches;
+    shuffle: typeof shuffle;
+};
 declare const _default: {
     chunk: typeof chunk;
     hasMatches: typeof hasMatches;

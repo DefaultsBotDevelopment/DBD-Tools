@@ -73,6 +73,10 @@ export function msToTimeObject(
 	return returnObject;
 }
 
+export const TimeUtils = {
+	msToTimeObject,
+};
+
 export default {
 	msToTimeObject,
 };

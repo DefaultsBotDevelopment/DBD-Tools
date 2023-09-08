@@ -19,6 +19,9 @@ export declare function msToTimeObject(timeInMs: number, options?: {
     months?: number;
     years?: number;
 } | null;
+export declare const TimeUtils: {
+    msToTimeObject: typeof msToTimeObject;
+};
 declare const _default: {
     msToTimeObject: typeof msToTimeObject;
 };

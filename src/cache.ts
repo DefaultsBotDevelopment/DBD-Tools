@@ -6,7 +6,7 @@ import { promisify } from 'util';
  * @example const cache = getCache('./cache.json'); // returns cache file
  */
 
-export function getCache(path: string) {
+export function getCache(path: string): Record<string, any> {
 	let cache = fs.readFileSync(path);
 	return JSON.parse(cache.toString());
 }
@@ -18,7 +18,7 @@ export function getCache(path: string) {
  * @async
  */
 
-export async function updateCache(cache: Record<string, any>, path: string) {
+export async function updateCache(cache: Record<string, any>, path: string): Promise<boolean> {
 	const writeFileAsync = promisify(fs.writeFile);
 
 	try {
@@ -28,6 +28,11 @@ export async function updateCache(cache: Record<string, any>, path: string) {
 		throw error;
 	}
 }
+
+export const CacheUtils = {
+	getCache,
+	updateCache,
+};
 
 export default {
 	getCache,

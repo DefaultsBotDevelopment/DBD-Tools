@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.updateCache = exports.getCache = void 0;
+exports.CacheUtils = exports.updateCache = exports.getCache = void 0;
 const fs_1 = __importDefault(require("fs"));
 const util_1 = require("util");
 /**
@@ -19,6 +19,7 @@ exports.getCache = getCache;
  * @description Update cache file.
  * @throws {Error} - If the cache file could not be updated.
  * @example updateCache(cache, './cache.json'); // returns a promise
+ * @async
  */
 async function updateCache(cache, path) {
     const writeFileAsync = (0, util_1.promisify)(fs_1.default.writeFile);
@@ -31,6 +32,10 @@ async function updateCache(cache, path) {
     }
 }
 exports.updateCache = updateCache;
+exports.CacheUtils = {
+    getCache,
+    updateCache,
+};
 exports.default = {
     getCache,
     updateCache,

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getMentions = exports.formatSelects = exports.formatButtons = void 0;
+exports.DiscordUtils = exports.getMentions = exports.formatSelects = exports.formatButtons = void 0;
 const discord_js_1 = require("discord.js");
 /**
  * @description Format buttons into action rows
@@ -62,7 +62,7 @@ function formatSelects(custom_id, placeholder, min_values, max_values, options) 
 }
 exports.formatSelects = formatSelects;
 /**
- * @description get user mentions from string.
+ * @description get mentions from string.
  * @example const mentions = getMentions('Hello <@123456789>!', { users: true });
  */
 function getMentions(text, options) {
@@ -93,6 +93,11 @@ function getMentions(text, options) {
     return mentions;
 }
 exports.getMentions = getMentions;
+exports.DiscordUtils = {
+    formatButtons,
+    formatSelects,
+    getMentions,
+};
 exports.default = {
     formatButtons,
     formatSelects,

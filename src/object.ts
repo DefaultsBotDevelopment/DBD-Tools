@@ -113,6 +113,17 @@ export function flatten(object: Record<string, any>): object {
 	return toReturn;
 }
 
+export const ObjectUtils = {
+	getValue,
+	setValue,
+	hasKey,
+	hasValue,
+	getKeys,
+	getValues,
+	getEntries,
+	flatten,
+};
+
 export default {
 	getValue,
 	setValue,
