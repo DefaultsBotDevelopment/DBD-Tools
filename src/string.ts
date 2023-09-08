@@ -1,32 +1,30 @@
 /**
- * @description Format text to a specific casing.
+ * @description Format text to a specific casing. The casing types are: pascal, camel, snake, kebab. If there are special characters in the text, they will be removed.
  * @example formatText('hello world', 'pascal'); // returns 'Hello World'
  */
 export function formatText(text: string, type: 'pascal' | 'camel' | 'snake' | 'kebab'): string {
-	// split the text into an array
-	let array = text.split(' ');
 	// check the type and return the correct casing
 	switch (type) {
 		case 'pascal': // pascal casing
-			return array
-				.map((word) => {
-					return word.charAt(0).toUpperCase() + word.slice(1);
-				})
-				.join(' ');
+			return text
+				.replace(/\w\S*/g, (word) => word.charAt(0).toUpperCase() + word.substring(1).toLowerCase())
+				.replace(/\s+/g, '')
+				.replace(/[^\w\s]/g, '');
 
 		case 'camel': // camel casing
-			return array
-				.map((word, index) => {
-					if (index === 0) return word;
-					return word.charAt(0).toUpperCase() + word.slice(1);
-				})
-				.join(' ');
+			return text.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, (match, index) => (index === 0 ? match.toLowerCase() : match.toUpperCase())).replace(/\s+/g, '');
 
 		case 'snake': // snake casing
-			return array.join('_');
+			return text
+				.toLowerCase()
+				.replace(/\s+/g, '_')
+				.replace(/[^\w\s]/g, '');
 
 		case 'kebab': // kebab casing
-			return array.join('-');
+			return text
+				.toLowerCase()
+				.replace(/\s+/g, '-')
+				.replace(/[^\w\s-]/g, '');
 
 		default:
 			return text;

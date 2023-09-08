@@ -22,12 +22,10 @@ export function toBoolean(
 		boolean: boolean;
 		string?: boolean;
 		number?: boolean;
-		custom: { true: string[]; false: string[] };
+		custom?: { true: string[]; false: string[] };
 	}
 ): boolean | null {
 	const lowerData = typeof data === 'string' ? data.toLowerCase() : '';
-	const lowerTrueValues = options.custom.true.map((value) => value.toLowerCase());
-	const lowerFalseValues = options.custom.false.map((value) => value.toLowerCase());
 
 	if (options.boolean && typeof data === 'boolean') return data;
 	if (options.number && typeof data === 'number') return data === 1 ? true : data === 0 ? false : null;
@@ -36,6 +34,8 @@ export function toBoolean(
 		if (lowerData === 'false') return false;
 	}
 	if (options.custom) {
+		const lowerTrueValues = options.custom.true.map((value) => value.toLowerCase());
+		const lowerFalseValues = options.custom.false.map((value) => value.toLowerCase());
 		if (lowerTrueValues.includes(lowerData)) return true;
 		if (lowerFalseValues.includes(lowerData)) return false;
 	}
