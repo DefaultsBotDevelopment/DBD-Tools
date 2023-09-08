@@ -58,6 +58,16 @@ describe('ObjectUtils setValue function', () => {
 
 		if (object.a.b.d) expect(object.a.b.d).toBe(2);
 	});
+
+	it('should create the key if it does not exist and the path is nested', () => {
+		const object = {};
+		const path = 'a.b.c';
+		const value = 1;
+
+		const result = ObjectUtils.setValue(object, path, value);
+
+		expect(result).toEqual({ a: { b: { c: 1 } } });
+	});
 });
 
 describe('ObjectUtils hasKey function', () => {
@@ -117,6 +127,22 @@ describe('ObjectUtils hasValue function', () => {
 		const result = ObjectUtils.hasValue(object, 2);
 
 		expect(result).toBe(false);
+	});
+
+	it('should return true if the value exists and the value is an object', () => {
+		const object = {
+			a: {
+				b: {
+					c: {
+						d: 1,
+					},
+				},
+			},
+		};
+
+		const result = ObjectUtils.hasValue(object, { d: 1 });
+
+		expect(result).toBe(true);
 	});
 });
 
@@ -203,5 +229,15 @@ describe('ObjectUtils flatten function', () => {
 		const result = ObjectUtils.flatten(object);
 
 		expect(result).toEqual({});
+	});
+
+	it('should skip properties inherited from the prototype chain', () => {
+		const prototype = { prop: 'value' };
+		const object = Object.create(prototype);
+		object.a = 1;
+
+		const result = ObjectUtils.flatten(object);
+
+		expect(result).toEqual({ a: 1 });
 	});
 });

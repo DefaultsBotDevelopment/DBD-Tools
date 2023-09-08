@@ -14,7 +14,7 @@ export function msToTimeObject(
 		years: true,
 	}
 ): { seconds?: number; minutes?: number; hours?: number; days?: number; weeks?: number; months?: number; years?: number } | null {
-	if (!timeInMs || isNaN(timeInMs) || timeInMs <= 0) return null;
+	if (!timeInMs || isNaN(timeInMs) || timeInMs <= 0 || typeof timeInMs === 'string') return null;
 	if (typeof options !== 'object') throw new TypeError('options must be an object.');
 	// Check if options has any properties that are not valid
 	for (const [name] of Object.entries(options)) {

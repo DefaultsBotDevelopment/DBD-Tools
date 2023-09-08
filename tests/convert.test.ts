@@ -96,6 +96,18 @@ describe('ConvertUtils toBoolean function', () => {
 		expect(result).toBeNull();
 	});
 
+	it('should return null if the data is a number, the number options is true and the number is not 0 or 1', () => {
+		const data = 2;
+		const options = {
+			boolean: false,
+			number: true,
+		};
+
+		const result = ConvertUtils.toBoolean(data, options);
+
+		expect(result).toBeNull();
+	});
+
 	it('should return true if the data is a string and the string option is true', () => {
 		const data = 'true';
 		const options = {

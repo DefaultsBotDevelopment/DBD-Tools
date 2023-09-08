@@ -130,6 +130,25 @@ describe('DiscordUtils formatSelects function', () => {
 		expect(result).toHaveLength(4);
 	});
 
+	it('should enter the default values for placeholder, minValues and maxValues if they are not provided or nullable', () => {
+		const options: { label: string; value: string }[] = [];
+
+		for (let i = 0; i < 76; i++) {
+			options.push({ label: `option ${i}`, value: `option_${i}` });
+		}
+
+		const result = DiscordUtils.formatSelects('custom_id', '', 0, 0, options);
+
+		expect(result).toHaveLength(4);
+
+		for (const row of result) {
+			let select = row.components[0];
+			if (select.placeholder) expect(select.placeholder).toEqual('Select an option');
+			expect(select.minValues).toEqual(1);
+			expect(select.maxValues).toEqual(1);
+		}
+	});
+
 	it('should throw an error if there are more than 100 options', () => {
 		const options: { label: string; value: string }[] = [];
 
