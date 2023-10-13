@@ -1,6 +1,6 @@
 {
 	"name": "@defaultsbotdevelopment/dbd-tools",
-	"version": "2.3.1",
+	"version": "2.3.2",
 	"description": "A package that contains a collection of useful tools.",
 	"main": "dist/index.js",
 	"typings": "dist/index",
