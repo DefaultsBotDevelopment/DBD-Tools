@@ -11,7 +11,7 @@ export function chunk(array: any[], size: number): any[][] {
 
 	let results = [];
 	while (copyArray.length) {
-		results.push(copyArray.slice(0, size));
+		results.push(copyArray.splice(0, size));
 	}
 	return results;
 }
