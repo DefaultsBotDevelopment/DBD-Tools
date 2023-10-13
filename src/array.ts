@@ -7,9 +7,11 @@ export function chunk(array: any[], size: number): any[][] {
 	if (!array.length || size < 1) return [];
 	if (size >= array.length) return array;
 
+	let copyArray = [...array];
+
 	let results = [];
-	while (array.length) {
-		results.push(array.slice(0, size));
+	while (copyArray.length) {
+		results.push(copyArray.slice(0, size));
 	}
 	return results;
 }
