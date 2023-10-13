@@ -9,7 +9,7 @@ export function chunk(array: any[], size: number): any[][] {
 
 	let results = [];
 	while (array.length) {
-		results.push(array.splice(0, size));
+		results.push(array.slice(0, size));
 	}
 	return results;
 }
