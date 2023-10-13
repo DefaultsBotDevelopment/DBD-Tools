@@ -7,6 +7,7 @@ describe('ArrayUtils chunk function', () => {
 
 		const result = ArrayUtils.chunk(array, size);
 
+		expect(array).toHaveLength(9);
 		expect(result).toHaveLength(3);
 		expect(result).toEqual([[1, 2, 3, 4], [5, 6, 7, 8], [9]]);
 	});
