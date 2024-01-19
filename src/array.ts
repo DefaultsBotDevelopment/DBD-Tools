@@ -3,7 +3,7 @@
  * @example let array = chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9], 3); // returns [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
  */
 
-export function chunk(array: any[], size: number): any[][] {
+export function chunk<T>(array: T[], size: number): T[][] | T[] {
 	if (!array.length || size < 1) return [];
 	if (size >= array.length) return array;
 
@@ -21,7 +21,7 @@ export function chunk(array: any[], size: number): any[][] {
  * @example hasMatches([1, 2, 3], [3, 4, 5]); // returns true
  */
 
-export function hasMatches(array1: any[], array2: any[]): boolean {
+export function hasMatches<T>(array1: T[], array2: T[]): boolean {
 	return array1.some((value) => array2.includes(value));
 }
 
@@ -30,7 +30,7 @@ export function hasMatches(array1: any[], array2: any[]): boolean {
  * @example let array = filterDuplicates([1, 2, 3, 4, 5, 6, 7, 8, 9, 1]); // returns [1, 2, 3, 4, 5, 6, 7, 8, 9]
  */
 
-export function filterDuplicates(array: any[]): any[] {
+export function filterDuplicates<T>(array: T[]): T[] {
 	return [...new Set(array)];
 }
 
@@ -39,7 +39,7 @@ export function filterDuplicates(array: any[]): any[] {
  * @example let array = getMatches([1, 2, 3], [3, 4, 5]); // returns [3]
  */
 
-export function getMatches(array1: any[], array2: any[]): any[] {
+export function getMatches<T>(array1: T[], array2: T[]): T[] {
 	return array1.filter((value) => array2.includes(value));
 }
 
@@ -48,7 +48,7 @@ export function getMatches(array1: any[], array2: any[]): any[] {
  * @example let array = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]); // returns [9, 2, 3, 4, 5, 6, 7, 8, 1]
  */
 
-export function shuffle(array: any[]): any[] {
+export function shuffle<T>(array: T[]): T[] {
 	return [...array].sort(() => Math.random() - 0.5);
 }
 
