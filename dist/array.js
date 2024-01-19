@@ -6,9 +6,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ArrayUtils = exports.shuffle = exports.getMatches = exports.filterDuplicates = exports.hasMatches = exports.chunk = void 0;
 function chunk(array, size) {
-    var results = [];
-    while (array.length) {
-        results.push(array.splice(0, size));
+    if (!array.length || size < 1)
+        return [];
+    if (size >= array.length)
+        return array;
+    let copyArray = [...array];
+    let results = [];
+    while (copyArray.length) {
+        results.push(copyArray.splice(0, size));
     }
     return results;
 }
@@ -42,7 +47,7 @@ exports.getMatches = getMatches;
  * @example let array = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9]); // returns [9, 2, 3, 4, 5, 6, 7, 8, 1]
  */
 function shuffle(array) {
-    return array.sort(() => Math.random() - 0.5);
+    return [...array].sort(() => Math.random() - 0.5);
 }
 exports.shuffle = shuffle;
 exports.ArrayUtils = {

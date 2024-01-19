@@ -1,12 +1,12 @@
-import type { ButtonComponent, StringSelectMenuComponent } from 'discord.js';
+import type { APIButtonComponent, StringSelectMenuComponent } from 'discord.js';
 import { ComponentType } from 'discord.js';
 /**
  * @description Format buttons into action rows
  * @example const actionRows = formatButtons([button1, button2, button3]);
  */
-export declare function formatButtons(buttons: ButtonComponent[]): Array<{
+export declare function formatButtons(buttons: APIButtonComponent[]): Array<{
     type: ComponentType;
-    components: ButtonComponent[];
+    components: APIButtonComponent[];
 }>;
 /**
  * @description Formats an array of strings in string select message components with a max of 25 options per row.

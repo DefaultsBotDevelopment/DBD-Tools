@@ -15,7 +15,7 @@ function formatButtons(buttons) {
     while (buttons.length) {
         chunks.push(buttons.splice(0, 5));
     }
-    if (chunks.length < 0)
+    if (chunks.length <= 0)
         throw new Error('You need at least 1 button to create a message.');
     // create action rows with the buttons.
     const actionRows = chunks.map((chunk) => {
@@ -32,6 +32,11 @@ exports.formatButtons = formatButtons;
  * @example const actionRows = formatSelects('custom_id', 'Select an option', 1, 1, [{ label: 'option 1', value: 'option_1' }, { label: 'option 2', value: 'option_2' }]);
  */
 function formatSelects(custom_id, placeholder, min_values, max_values, options) {
+    // check if the amount of options is more than 100.
+    if (options.length > 100)
+        throw new Error('You can only have 100 options and 5 action rows per message.');
+    if (options.length <= 0)
+        throw new Error('You need at least 1 option to create a message.');
     // chunk the options into 25 options per row.
     let chunks = options.map((option, index) => {
         if (index % 25 === 0)
@@ -39,9 +44,6 @@ function formatSelects(custom_id, placeholder, min_values, max_values, options) 
     });
     // remove empty values from the array.
     chunks = chunks.filter((chunk) => chunk);
-    // check if the amount of options is more than 100.
-    if (options.length > 100)
-        throw new Error('You can only have 100 options and 5 action rows per message.');
     // create action rows with the chunks.
     let rows = chunks.map((chunk, index) => {
         return {
@@ -86,7 +88,6 @@ function getMentions(text, options) {
         mentions.channels = [];
         let channelMentions = text.match(/<#(\d{17,19})>/g);
         channelMentions?.forEach((mention) => {
-            console.log(mention.replace(/<#/, '').replace(/>/, ''));
             mentions.channels?.push(mention.replace(/<#/, '').replace(/>/, ''));
         });
     }
