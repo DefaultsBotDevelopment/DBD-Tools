@@ -14,7 +14,7 @@ function msToTimeObject(timeInMs, options = {
     months: true,
     years: true,
 }) {
-    if (!timeInMs || isNaN(timeInMs) || timeInMs <= 0)
+    if (!timeInMs || isNaN(timeInMs) || timeInMs <= 0 || typeof timeInMs === 'string')
         return null;
     if (typeof options !== 'object')
         throw new TypeError('options must be an object.');

@@ -1,5 +1,5 @@
 /**
- * @description Format text to a specific casing.
+ * @description Format text to a specific casing. The casing types are: pascal, camel, snake, kebab. If there are special characters in the text, they will be removed.
  * @example formatText('hello world', 'pascal'); // returns 'Hello World'
  */
 export declare function formatText(text: string, type: 'pascal' | 'camel' | 'snake' | 'kebab'): string;

@@ -14,7 +14,7 @@ export declare function toBoolean(data: boolean | string | number, options: {
     boolean: boolean;
     string?: boolean;
     number?: boolean;
-    custom: {
+    custom?: {
         true: string[];
         false: string[];
     };

@@ -21,8 +21,6 @@ exports.hexToDecimal = hexToDecimal;
  */
 function toBoolean(data, options) {
     const lowerData = typeof data === 'string' ? data.toLowerCase() : '';
-    const lowerTrueValues = options.custom.true.map((value) => value.toLowerCase());
-    const lowerFalseValues = options.custom.false.map((value) => value.toLowerCase());
     if (options.boolean && typeof data === 'boolean')
         return data;
     if (options.number && typeof data === 'number')
@@ -34,6 +32,8 @@ function toBoolean(data, options) {
             return false;
     }
     if (options.custom) {
+        const lowerTrueValues = options.custom.true.map((value) => value.toLowerCase());
+        const lowerFalseValues = options.custom.false.map((value) => value.toLowerCase());
         if (lowerTrueValues.includes(lowerData))
             return true;
         if (lowerFalseValues.includes(lowerData))

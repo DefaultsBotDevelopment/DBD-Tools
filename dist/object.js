@@ -93,13 +93,9 @@ exports.getEntries = getEntries;
 function flatten(object) {
     const toReturn = {};
     for (const i in object) {
-        if (!object.hasOwnProperty(i))
-            continue;
         if (typeof object[i] === 'object') {
             const flatObject = flatten(object[i]);
             for (const x in flatObject) {
-                if (!flatObject.hasOwnProperty(x))
-                    continue;
                 toReturn[i + '_' + x] = flatObject[x];
             }
         }
